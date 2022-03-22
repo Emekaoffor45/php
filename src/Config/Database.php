@@ -1,9 +1,11 @@
 <?php 
-  namespace DataBase;
-  use \mysqli;
+  namespace Source\Config;
+
+  use mysqli;
 
   //Get Database Details
-  require '../../config/dbCredentials.php';
+
+  require __DIR__ .  '/dbCredentials.php';
 
   class Database {
     protected $conn;
@@ -12,8 +14,6 @@
 
     public function __construct(){
       $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
-      // $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
     
       // Check connection
       if ($this->conn->connect_error) {

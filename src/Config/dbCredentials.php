@@ -1,6 +1,5 @@
 <?php
 
-    namespace Database;
     //database Details\
 
     define("DB_HOST", 'mysql-72571-0.cloudclusters.net');

@@ -1,11 +1,9 @@
 <?php
-    namespace Controller;
+    namespace Source\Controller;
 
-    require '../../Model/ProductModel.php';
-
-    use Model\ProductModel;
-
-    class Product {
+    use Source\Model\FurnitureModel;
+    use Source\Model\ProductModel;
+    class ProductController  {
         // Product Properties
         public $sku;
         public $category_id;
@@ -27,16 +25,50 @@
             
         }
 
-        // function to store products in the database
-
-        public function storeProduct() {
+        // function to store furniture in the database
+        public function storeFurniture() {
             //instantiate Product model
 
-            $productsModel = new ProductModel();
+            $furnitureModel = new FurnitureModel();
             
             //create a product and save
 
-            return $productsModel->create(
+            return $furnitureModel->create(
+                $this->sku,
+                $this->category_id,
+                $this->name,
+                $this->details,
+                $this->price,
+            );
+        } 
+
+        // function to store dvd in the database
+        public function storeDvd() {
+            //instantiate Product model
+
+            $furnitureModel = new FurnitureModel();
+            
+            //create a product and save
+
+            return $furnitureModel->create(
+                $this->sku,
+                $this->category_id,
+                $this->name,
+                $this->details,
+                $this->price,
+            );
+        } 
+
+        // function to store book in the database
+
+        public function storeBook() {
+            //instantiate Product model
+
+            $furnitureModel = new FurnitureModel();
+            
+            //create a product and save
+
+            return $furnitureModel->create(
                 $this->sku,
                 $this->category_id,
                 $this->name,
