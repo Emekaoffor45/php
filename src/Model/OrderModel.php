@@ -3,9 +3,9 @@
 
   use Source\Config\Database;
 
-  class ProductModel extends Database {
+  class OrderModel extends Database {
     //table name
-    protected $table = 'products';
+    protected $table = 'orders';
     
     //contructor
 
@@ -13,17 +13,18 @@
       parent::__construct();
     }
 
-    // function too get products
+    // function to get orders
     public function read() {
 
       // select query
       $query = 'SELECT  
-                  p.product_id, 
-                  p.name, p.quantity_in_stock, 
-                  p.unit_price
+                  p.order_id, 
+                  p.customer_id, p.order_date, 
+                  p.status, p.comments, 
+                  p.shipped_date, p.shipper_id
                 FROM ' . $this->table . ' p
                 ORDER BY
-                  p.product_id ASC';
+                  p.order_date DESC';
       
       //execute query
 
@@ -31,4 +32,5 @@
 
       return $stmt ;
     }
+    
   }
